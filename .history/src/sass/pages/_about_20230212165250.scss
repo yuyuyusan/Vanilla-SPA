@@ -1,0 +1,319 @@
+@use "../global"as *;
+
+
+
+.backButton {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  mix-blend-mode: difference;
+
+  @include sp {
+    right: 20px;
+  }
+}
+
+.backButton::before,
+.backButton::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.backButton::before {
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+.backButton::after {
+  transform: translate(0, -50%) rotate(45deg);
+}
+
+.aboutFv {
+  background: #000;
+
+  .container {
+    @include sectionWidth;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    h1 {
+      line-height: 1;
+      position: fixed;
+      font-size: 4rem;
+      animation: 1s navAction1 forwards;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 2px;
+
+      @include tab {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@keyframes navAction1 {
+  from {
+    top: 15%;
+    left: 10%;
+  }
+
+  to {
+    top: 60px;
+    left: 60px;
+
+    @include tab {
+      top: 40px;
+      left: 40px;
+
+      @include sp {
+        top: 20px;
+        left: 20px;
+      }
+    }
+  }
+}
+
+// 手書きsvg
+.svgName {
+  width: min(100%, 420px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .cls-1,
+  .cls-2 {
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+  }
+
+  .cls-1 {
+    animation: handwriting 3s ease-in forwards;
+  }
+
+  .cls-2 {
+    animation: handwriting2 4s ease-in forwards;
+  }
+}
+
+/* --- アニメーション --- */
+@keyframes handwriting {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- アニメーション --- */
+@keyframes handwriting2 {
+  0% {
+    stroke-dashoffset: 3500;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+// scrolldown
+.scroolDown {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  @include sp {
+    right: 0;
+  }
+
+  .inner {
+    position: relative;
+
+    ::before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 100%;
+      background: #fff;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      left: -3px;
+      bottom: 0;
+      animation: scrollDown 5s infinite;
+    }
+  }
+
+  span {
+    color: #fff;
+    writing-mode: vertical-lr;
+    line-height: 2;
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    bottom: 70%;
+  }
+
+  50% {
+    bottom: 0;
+    opacity: .5;
+  }
+
+  100% {
+    bottom: 70%;
+  }
+}
+
+// ------------------------------
+// area
+// ------------------------------
+
+
+.stickyContainer {
+  position: relative;
+  background: #fff;
+  min-height: 300vh;
+  width: 100%;
+  overflow: initial;
+}
+
+.stickyArea {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 100px 0;
+  height: 100vh;
+  height: 100dvh;
+  background: #f7f7f7;
+
+  @include tab {
+    padding: 30px 0;
+  }
+}
+
+.stickyArea .inner {
+  width: min(100% - 80px, $tab);
+  margin: 0 auto;
+
+  @include sp {
+    width: min(100% - 40px, $tab);
+  }
+
+  figure {
+    margin-bottom: 20px;
+
+    img {
+      display: grid;
+      place-content: center;
+      width: min(100%, 300px);
+      height: 50%;
+      object-fit: contain;
+
+      @include tab {
+        width: min(100%, 200px);
+      }
+    }
+  }
+
+  .text {
+    line-height: 2;
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+}
+
+
+.stickyTop,
+.stickyBottom {
+  width: 100%;
+  height: 4px;
+  display: block;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.stickyTop {
+  top: 0;
+}
+
+.stickyBottom {
+  bottom: 0;
+}
+
+
+
+
+
+
+
+// ------------------------------
+// see you
+// ------------------------------
+.aboutLast {
+  background: #000;
+  position: relative;
+  overflow-x: hidden;
+
+  .container {
+    padding: 300px 0;
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+
+    #textActive {
+      transform: translateX(50%);
+      font-size: 4rem;
+      font-weight: bold;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      white-space: nowrap;
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
+  }
+}
+
+
+#scroller {
+  overflow: scroll;
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  border: 5px solid black;
+
+  p {
+    height: 500px;
+    font-size: 2rem;
+  }
+}

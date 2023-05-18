@@ -1,0 +1,39 @@
+// ********************************
+// mixin
+// ********************************
+@use "variables"as *;
+
+@mixin pc-m {
+  @media screen and (max-width: ($pc-m)) {
+    @content;
+  }
+}
+
+@mixin pc-s {
+  @media screen and (max-width: ($pc-s)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+
+
+@mixin sectionWidth {
+  width: min(100% - 80px, $pc-s);
+  margin: 0 auto;
+
+  @include sp {
+    width: min(100% - 40px, $pc-s);
+  }
+}

@@ -1,0 +1,27 @@
+// js hoverなど
+
+/* クリック時 */
+.navActive {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.menuTopActive {
+  top: 30px !important;
+  transform: translate(-50%, 0) rotate(30deg) !important;
+  background: #fff!important;
+}
+
+.menuCenterActive {
+  opacity: 0;
+}
+
+.menuBottomActive {
+  top: 30px !important;
+  transform: translate(-50%, 0) rotate(-30deg) !important;
+  background: #fff!important;
+}
+.menuTextActive {
+  color: #fff!important;
+}
+

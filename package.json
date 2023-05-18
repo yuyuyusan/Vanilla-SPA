@@ -1,0 +1,23 @@
+{
+  "name": "my-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass src/sass:dist/css/ --no-source-map --watch",
+    "postcss": "postcss dist/css/style.css --use autoprefixer --dir dist/css/ --watch"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1% in JP"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.54.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "postcss-cli": "^10.0.0"
+  }
+}

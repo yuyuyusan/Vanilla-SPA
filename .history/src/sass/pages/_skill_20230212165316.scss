@@ -1,0 +1,88 @@
+@use "../global"as *;
+
+
+.skillFv {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #222;
+
+  .container {
+    @include sectionWidth;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      line-height: 1;
+      position: fixed;
+      font-size: 4rem;
+      animation: 1s navAction2 forwards;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 2px;
+
+      @include tab {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@keyframes navAction2 {
+  from {
+    top: 20%;
+    left: 75%;
+  }
+
+  to {
+    top: 60px;
+    left: 60px;
+
+
+    @include tab {
+      top: 40px;
+      left: 40px;
+
+      @include sp {
+        top: 20px;
+        left: 20px;
+      }
+    }
+  }
+}
+
+
+.skillFv .container .scrollListWrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+
+  .list {
+    left: 0;
+    top: 30%;
+    position: absolute;
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.skillFv .container .scrollListWrap .list .listItem {
+  min-width: 500px;
+  color: #fff;
+  display: flex;
+  gap: 20px;
+
+  h3 {
+    font-size: 3rem;
+
+    @include tab {
+      font-size: 2rem;
+    }
+  }
+
+  .inner {
+    line-height: 2;
+  }
+}

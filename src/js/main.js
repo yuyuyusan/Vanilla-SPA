@@ -28,10 +28,8 @@ const updateView = () => {
 
 document.querySelectorAll(".topLink").forEach((a) => {
   a.onclick = (event) => {
-    //アンカーリンクのデフォルト挙動をdisable
     event.preventDefault();
     window.history.pushState(null, "", a.href);
-    //ここで定義した関数を発火
     updateView();
   };
 });
@@ -139,12 +137,8 @@ function loadingAction() {
                 }
               });
             } else if (node.contains(node) == true) {
-              // テキストではなく、子ノード(=span要素)を持つ
-              // そのまま連結
               textBox = textBox + node.outerHTML;
             } else {
-              // テキストではなく、br要素などspan要素以外の要素を持つ
-              // そのまま連結 ※br要素などをspan要素とは別に処理する場合はここに書く
               textBox = textBox + node.outerHTML;
             }
           });
@@ -216,7 +210,6 @@ const elm = document.getElementById("app");
 const DOMobserver = new MutationObserver(function () {
   // ------------------------------
   // aboutページスクロールでsticky
-  // あとで分解して理解する
   // ------------------------------
   let isActiveSticky = false;
   let stickyTrigger = {
@@ -462,7 +455,7 @@ const config2 = {
   childList: true,
 };
 DOMobserver2.observe(elm2, config2);
-// };
+
 // ------------------------------
 // works slider
 // ------------------------------
